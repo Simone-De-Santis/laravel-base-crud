@@ -14,16 +14,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        @forelse($comics as $comic)
+          <tr>
 
-          <td>Action Comics #1000: The Deluxe Edition (inserect img )</td>
-          <td>Action Comics</td>
-          <td>comic book</td>
-          <td>9.99</td>
-          <td><a href="#" class="btn btn-primary">Details</a></td>
+            <td>Action Comics #1000: The Deluxe Edition (inserect img )</td>
+            <td>Action Comics</td>
+            <td>comic book</td>
+            <td>9.99</td>
+            <td><a href="#" class="btn btn-primary">Details</a></td>
 
-        </tr>
-
+          </tr>
+        @empty
+          <tr>
+            <td colspan='5' class='text-center'> Non ho trovato fumetti</td>
+          </tr>
+        @endforelse
       </tbody>
     </table>
   </div>
