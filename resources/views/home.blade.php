@@ -1,8 +1,26 @@
+{{-- layout di riferimento --}}
 @extends('layout.main')
-@section('title', 'Comics')
-@section('header')
 
+
+{{-- titolo pagina --}}
+@section('title', 'Comics')
+
+
+
+
+{{-- sezione header --}}
+@section('header_id', 'home-header')
+@section('header')
+  @include('includes/main_layout_components/header')
 @endsection
+
+
+
+
+{{-- sezione contenuto main --}}
+@section('main_id', 'home-main')
+
 @section('content')
+  @include('includes/main_layout_components/main')
 
 @endsection

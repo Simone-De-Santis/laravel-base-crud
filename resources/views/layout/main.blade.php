@@ -12,13 +12,13 @@
 </head>
 
 <body>
-  <header>
+  <header id="@yield('header_id')">
     @yield('header')
   </header>
-  <main>
+  <main id="@yield('main_id')">
     @yield('content')
   </main>
-  <footer>
+  <footer id="@yield('footer_id')">
     @yield('footer')
   </footer>
 
