@@ -21,6 +21,8 @@
               @if ($comic->thumb)
                 <img src="{{ $comic->thumb }}" alt="{{ $comic->title }} "
                   class="img-fluid me-2" width="20">
+              @endif
+              {{ $comic->title }}
             </td>
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->type }}</td>
@@ -28,12 +30,12 @@
             <td><a href="#" class="btn btn-primary">Details</a></td>
 
           </tr>
-          @empty
-            <tr>
-              <td colspan='5' class='text-center'> Non ho trovato fumetti</td>
-            </tr>
-          @endforelse
-        </tbody>
-      </table>
-    </div>
+        @empty
+          <tr>
+            <td colspan='5' class='text-center'> Non ho trovato fumetti</td>
+          </tr>
+        @endforelse
+      </tbody>
+    </table>
   </div>
+</div>
