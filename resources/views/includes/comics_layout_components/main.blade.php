@@ -17,19 +17,23 @@
         @forelse($comics as $comic)
           <tr>
 
-            <td>Action Comics #1000: The Deluxe Edition (inserect img )</td>
-            <td>Action Comics</td>
-            <td>comic book</td>
-            <td>9.99</td>
+            <td>
+              @if ($comic->thumb)
+                <img src="{{ $comic->thumb }}" alt="{{ $comic->title }} "
+                  class="img-fluid me-2" width="20">
+            </td>
+            <td>{{ $comic->series }}</td>
+            <td>{{ $comic->type }}</td>
+            <td>{{ $comic->price }}</td>
             <td><a href="#" class="btn btn-primary">Details</a></td>
 
           </tr>
-        @empty
-          <tr>
-            <td colspan='5' class='text-center'> Non ho trovato fumetti</td>
-          </tr>
-        @endforelse
-      </tbody>
-    </table>
+          @empty
+            <tr>
+              <td colspan='5' class='text-center'> Non ho trovato fumetti</td>
+            </tr>
+          @endforelse
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
