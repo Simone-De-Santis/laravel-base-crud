@@ -18,5 +18,5 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/comics', function () {
-    return view('home');
+    return view('comics');
 })->name('comics');

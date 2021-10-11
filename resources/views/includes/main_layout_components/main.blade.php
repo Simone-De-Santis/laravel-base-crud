@@ -1,5 +1,1 @@
-<div class="bg-primary">
-  <div class="container">
-
-  </div>
-</div>
+<h1>qui gestiremo la home page</h1>

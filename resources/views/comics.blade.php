@@ -3,7 +3,7 @@
 
 
 {{-- titolo pagina --}}
-@section('title', 'Home')
+@section('title', 'Comics')
 
 
 
@@ -21,6 +21,6 @@
 @section('main_id', 'home-main')
 
 @section('content')
-  @include('includes/main_layout_components/main')
+  @include('includes/comics_layout_components/main')
 
 @endsection
