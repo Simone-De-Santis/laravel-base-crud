@@ -6,7 +6,7 @@
     </div>
     <hr>
     <div class="card-body">
-      <form methods="post" action="">
+      <form methods="post" action="{{ route('comics.store') }}">
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
