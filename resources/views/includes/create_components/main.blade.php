@@ -6,7 +6,7 @@
     </div>
     <hr>
     <div class="card-body">
-      <form action="">
+      <form methods="post" action="">
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
