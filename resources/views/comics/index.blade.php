@@ -11,7 +11,7 @@
 {{-- sezione header --}}
 @section('header_id', 'home-header')
 @section('header')
-  @include('includes/main_layout_components/header')
+  @include('includes/generics_component/header')
 @endsection
 
 
@@ -21,6 +21,6 @@
 @section('main_id', 'home-main')
 
 @section('content')
-  @include('includes/comics_layout_components/main')
+  @include('includes/index_components/main')
 
 @endsection
