@@ -14,7 +14,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ request()->routeIs('comics') ? 'active' : '' }}"
-            aria-current="page" href="{{ route('comics.index') }}">comics</a>
+            aria-current="page" href="{{ route('comics.index') }}">Comics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->routeIs('comics') ? 'active' : '' }}"
+            aria-current="page" href="{{ route('comics.create') }}">Create</a>
         </li>
       </ul>
     </div>
