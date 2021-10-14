@@ -9,20 +9,25 @@
       <form method="POST" action="{{ route('comics.store') }}">
         @csrf
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
               <input type="text" class="form-control" id="title" name="title" required>
               <div class="form-text">Inserire Titolo Comics</div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="mb-3">
               <label for="thumb" class="form-label">Thumb</label>
               <input type="text" class="form-control" id="thumb" name="thumb" required>
               <div class="form-text">Inserire link img copertina Comics
               </div>
             </div>
+          </div>
+          <div class="col-md-2">
+            <img
+              src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg"
+              alt="placeholder" width="100" class="img-fluid" id="preview">
           </div>
           <div class="col-md-3">
             <div class="mb-3">
@@ -69,6 +74,21 @@
   </div>
   </form>
 </div>
-</div>
 
-</div>
+@section('scripts')
+  <script>
+    const preview = document.getElementById('preview');
+    const placeholder =
+      'https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg';
+    const logoImput = document.getElementById('thumb');
+
+    logoImput.addEventListener('change', function() {
+      const url = this.value;
+      if (url) {
+        preview.setAttribute('src', url);
+      } else
+        preview.setAttribute('src', placeholder);
+
+    })
+  </script>
+@endsection
