@@ -2,7 +2,7 @@
   <div class="card-title mt-5">
     <div class="d-flex justify-content-between align-items-center">
       <h1>inserisci nuovo fumetto</h1>
-      <a href="{{ route(url()->previous()) }}" class="btn btn-secondary">Return</a>
+      <a href="{{ url()->previous() }}" class="btn btn-secondary">Return</a>
     </div>
     <hr>
     <div class="card-body">
