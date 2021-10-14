@@ -22,16 +22,16 @@
 
               <td>
                 @if ($comic->thumb)
-                  <img src="{{ $comic->thumb }}" alt="{{ $comic->title }} "
-                    class="img-fluid me-2" width="20">
+                  <img src="{{ $comic->thumb }}" alt="{{ $comic->title }} " class="img-fluid me-2" width="20">
                 @endif
                 {{ $comic->title }}
               </td>
               <td>{{ $comic->series }}</td>
               <td>{{ $comic->type }}</td>
               <td>{{ $comic->price }}</td>
-              <td><a href="{{ route('comics.show', $comic->id) }}"
-                  class="btn btn-primary">Details</a></td>
+              <td><a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Details</a>
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ">Edit</a>
+              </td>
 
             </tr>
           @empty
