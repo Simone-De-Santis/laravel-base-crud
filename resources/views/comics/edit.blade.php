@@ -11,7 +11,7 @@
 @endsection
 
 {{-- sezione contenuto main --}}
-@section('main_id', 'edit-main')
+@section('main_id', "edit-main$comic->id")
 @section('content')
   @include('includes/edit_components/main')
 @endsection
