@@ -3,15 +3,15 @@
 
 
 {{-- exist verifica se è '''veramente''' una istanza reale (con id e tutto il resto) --}}
-@if ($comic->exist)
+@if ($comic->exists)
   <form method="POST" action="{{ route('comics.update', $comic->id) }}">
-    {{-- anche se nel form abbiamo messo post per inviare il form all'update dobbiamo usare PUT o PATCH in questa maniera lo cambiamo --}}
     @method('PATCH')
+    {{-- anche se nel form abbiamo messo post per inviare il form all'update dobbiamo usare PUT o PATCH in questa maniera lo cambiamo --}}
   @else
     <form method="POST" action="{{ route('comics.store') }}">
 @endif
-{{-- token di sicurezza per laravel --}}
 @csrf
+{{-- token di sicurezza per laravel --}}
 <div class="row">
   <div class="col-md-5">
     <div class="mb-3">
@@ -74,7 +74,7 @@
 </div>
 <div class="card-footer bg-white d-flex justify-content-between">
   <button type="reset" class='btn btn-secondary'>Reset</button>
-  <button type="submit" class='btn btn-success'>Edit</button>
+  <button type="submit" class='btn btn-success'>Eddit</button>
 
 </div>
 
