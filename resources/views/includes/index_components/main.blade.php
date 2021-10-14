@@ -29,8 +29,15 @@
               <td>{{ $comic->series }}</td>
               <td>{{ $comic->type }}</td>
               <td>{{ $comic->price }}</td>
-              <td><a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Details</a>
-                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ">Edit</a>
+              <td class="d-flex"><a href="{{ route('comics.show', $comic->id) }}"
+                  class="btn btn-primary">Details</a>
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ms-2 ">Edit</a>
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  {{-- inserito un form perchè è l'unica maniera per intereagire e abbiamo cambiato il metodo con @method per il delite --}}
+                  <button type="submit" class="btn btn-danger ms-2">Delite</button>
+                </form>
               </td>
 
             </tr>
