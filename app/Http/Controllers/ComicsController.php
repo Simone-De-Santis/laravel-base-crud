@@ -30,7 +30,12 @@ class ComicsController extends Controller
     public function create()
     {
         //
-        return view('comics.create');
+
+        // !istanza creata per poter fare l'if per il form per verificare se siamo nell'edit o nel create -->> vai all'icludel del form 
+        $comic = new Comic;
+
+
+        return view('comics.create', compact('comic'));
     }
 
     /**
