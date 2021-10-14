@@ -63,6 +63,9 @@ class ComicsController extends Controller
         //# proprietà del modello model per il salvatagio 
         // dd($comic);
         $comic->save();
+
+        //# torniamo nel dettaglio del comic appena creato
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
