@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="card-footer d-flex justify-content-end bg-white">
-      <a href="{{ route('comics.index') }}" class="btn btn-primary"> indietro</a>
+      <a href="{{ route('comics.index') }}" class="btn btn-primary"> Return</a>
     </div>
   </div>
 </div>

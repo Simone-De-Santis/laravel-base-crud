@@ -47,14 +47,20 @@ class ComicsController extends Controller
         //# inizializzaimo una nuova instanza Comic(model comic) da inserire nel db
         $comic = new Comic();
 
+
         //# riasegnamo valori del modello con i dati ricevuto (data) dal forum per l'inserimento della tupla nel db
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
+        //? manella
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->price = $data['price'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        //? fill
+        // fa in automatico il manella  prendendo cosa deve inserire dal campo fillable inserito nel model :-)
+        // fill non inserisce lo slug perche npn viene dal form e lo inseriamo noi a mano 
+        $comic->fill($data);
 
 
         //# utiliziamo il metodo slug dell'Str importato a riga 3 per la creazione dello slug
