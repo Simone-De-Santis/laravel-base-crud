@@ -45,7 +45,7 @@ class ComicsController extends Controller
         //# prendiamo tutti i dati provenienti dal form generato da create
         $data = $request->all();
         //# inizializzaimo una nuova instanza Comic(model comic) da inserire nel db
-        $comic = new Comic();
+        // $comic = new Comic();
 
 
         //# riasegnamo valori del modello con i dati ricevuto (data) dal forum per l'inserimento della tupla nel db
@@ -60,15 +60,19 @@ class ComicsController extends Controller
         //? fill
         // fa in automatico il manella  prendendo cosa deve inserire dal campo fillable inserito nel model :-)
         // fill non inserisce lo slug perche npn viene dal form e lo inseriamo noi a mano 
-        $comic->fill($data);
+        // $comic->fill($data);
 
 
         //# utiliziamo il metodo slug dell'Str importato a riga 3 per la creazione dello slug
-        $comic->slug = Str::slug($data['title'], '-');
+        // $comic->slug = Str::slug($data['title'], '-');
 
         //# proprietà del modello model per il salvatagio 
-        // dd($comic);
-        $comic->save();
+        // $comic->save();
+
+        //# version created 
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $comic = Comic::create($data);
 
         //# torniamo nel dettaglio del comic appena creato
         return redirect()->route('comics.show', $comic);
