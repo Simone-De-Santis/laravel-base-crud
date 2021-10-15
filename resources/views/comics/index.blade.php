@@ -17,5 +17,5 @@
 @endsection
 
 @section('scripts')
-
+  <script src="{{ asset('js/delete_confirm.js') }}"></script>
 @endsection
