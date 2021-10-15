@@ -40,7 +40,9 @@
               <td class="d-flex"><a href="{{ route('comics.show', $comic->id) }}"
                   class="btn btn-primary">Details</a>
                 <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ms-2 ">Edit</a>
-                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form">
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form"
+                  data-comic="{{ $comic->title }}">
+                  {{-- con data- possiamo creare attributi personalizati che in questo caso andiamo a leggere con js per scrivere il nome nell'allert --}}
                   @csrf
                   @method('DELETE')
                   {{-- inserito un form perchè è l'unica maniera per intereagire e abbiamo cambiato il metodo con @method per il delite --}}
@@ -78,8 +80,9 @@
   // con il cilo attachiamo il listener a tutti gli elementi in pagina 
   deletFormElement.forEach(form => {
     form.addEventListener('submit', function(e) {
+      const name = form.getAttribute('data-comic');
       e.preventDefault(); // blocca l'esecuzione dell'evento naturale (nel form è submit)
-      const conf = window.confirm('Sei sicuro di voler eliminare {{ $comic->title }} ?');
+      const conf = window.confirm(`Sei sicuro di voler eliminare ${name} ?`);
       if (conf) this.submit();
     });
   });
