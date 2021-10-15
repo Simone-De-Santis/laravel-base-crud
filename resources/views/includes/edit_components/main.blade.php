@@ -8,7 +8,3 @@
     <div class="card-body">
       @include('includes.comic.form')
     </div>
-
-    @section('scripts')
-      @include('includes/generics_component/script_preview')
-    @endsection

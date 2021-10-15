@@ -17,5 +17,6 @@
 @endsection
 
 @section('scripts')
+  {{-- importa lo script da public --}}
   <script src="{{ asset('js/delete_confirm.js') }}"></script>
 @endsection
