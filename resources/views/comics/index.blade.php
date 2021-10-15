@@ -15,3 +15,7 @@
 @section('content')
   @include('includes/index_components/main')
 @endsection
+
+@section('scripts')
+
+@endsection

@@ -141,7 +141,7 @@ class ComicsController extends Controller
         //
         $comic = Comic::findOrFail($id);
         $comic->delete();
-
-        return redirect()->route('comics.index');
+        // # passiamo al redirect una varabile di sessione per l'allert di avvenuta cancellazione 
+        return redirect()->route('comics.index')->with('delete', $comic->title);
     }
 }
