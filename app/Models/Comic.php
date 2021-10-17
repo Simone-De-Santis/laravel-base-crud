@@ -16,10 +16,20 @@ class Comic extends Model
 
     //! campi per la funzione fill
     protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type', 'slug'];
+
+
+
     public function getDeletedAt()
     {
-
         return Carbon::create($this->deleted_at)->format('d-m-Y');
+    }
+    public function getCreatedAt()
+    {
+        return Carbon::create($this->created_at)->format('d-m-Y');
+    }
+    public function getUpdatedAt()
+    {
+        return Carbon::create($this->updated_at)->format('d-m-Y');
     }
 }
 
