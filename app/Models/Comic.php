@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 // aggiunta per soft delite (cestino)
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+// importo CArbon per la formattazione date
+use Carbon\Carbon;
 
 class Comic extends Model
 {
@@ -15,6 +16,11 @@ class Comic extends Model
 
     //! campi per la funzione fill
     protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type', 'slug'];
+    public function getDeletedAt()
+    {
+
+        return Carbon::create($this->deleted_at)->format('d-m-Y');
+    }
 }
 
 

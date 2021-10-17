@@ -38,7 +38,7 @@
               <td>{{ $comic->series }}</td>
               <td>{{ $comic->type }}</td>
               <td>{{ $comic->price }}</td>
-              <td>{{ $comic->deleted_at }}</td>
+              <td>{{ $comic->getDeletedAt() }}</td>
               <td class="d-flex justify-content-center">
                 {{-- <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Details</a>
                 <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ms-2 ">Edit</a> --}}
