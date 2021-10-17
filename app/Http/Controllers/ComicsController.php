@@ -144,4 +144,10 @@ class ComicsController extends Controller
         // # passiamo al redirect una varabile di sessione per l'allert di avvenuta cancellazione 
         return redirect()->route('comics.index')->with('delete', $comic->title);
     }
+    public function trash()
+    {
+        $comics = Comic::onlyTrashed()->get();
+
+        return view('comics.trash', compact('comics'));
+    }
 }

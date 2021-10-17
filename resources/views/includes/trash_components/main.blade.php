@@ -9,7 +9,7 @@
 <div class="container pt-5">
   <div class="card">
     <div class="card-title text-center">
-      <h2 class='m-0 p-2 pb-4'>Fumetti caricati nel server</h2>
+      <h2 class='m-0 p-2 pb-4'>Cestino</h2>
     </div>
 
     <hr>
@@ -21,7 +21,7 @@
             <th scope="col">Series</th>
             <th scope="col">Type</th>
             <th scope="col">Price</th>
-            <th scope="col"></th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -38,15 +38,19 @@
               <td>{{ $comic->type }}</td>
               <td>{{ $comic->price }}</td>
               <td class="d-flex justify-content-center">
-                <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Details</a>
-                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ms-2 ">Edit</a>
+                {{-- <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Details</a>
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ms-2 ">Edit</a> --}}
+
+
+
+                {{-- btn ripristina --}}
                 <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form"
                   data-comic="{{ $comic->title }}">
                   {{-- con data- possiamo creare attributi personalizati che in questo caso andiamo a leggere con js per scrivere il nome nell'allert --}}
                   @csrf
-                  @method('DELETE')
+                  @method('PATCH')
                   {{-- inserito un form perchè è l'unica maniera per intereagire e abbiamo cambiato il metodo con @method per il delite --}}
-                  <button type="submit" class="btn btn-danger ms-2">Delite</button>
+                  <button type="submit" class="btn btn-success ms-2">Restore</button>
                 </form>
               </td>
 
@@ -60,7 +64,7 @@
       </table>
     </div>
     <div class="card-footer bg-white mx-auto">
-      <a href="{{ route('comics.trash') }}">&#128465; - Vai al cestino</a>
+
 
 
 
