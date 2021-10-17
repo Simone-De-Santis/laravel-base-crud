@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 // #import per l'utilizzo del metodo str(in questo caso per la creazione dello slug)
 use Illuminate\Support\Str;
+// #import per l'utilizzo del metodo Carbon(per stilizzare le date)
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ComicsController extends Controller

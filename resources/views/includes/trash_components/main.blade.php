@@ -21,6 +21,7 @@
             <th scope="col">Series</th>
             <th scope="col">Type</th>
             <th scope="col">Price</th>
+            <th scope="col">Eliminate-date</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -37,6 +38,7 @@
               <td>{{ $comic->series }}</td>
               <td>{{ $comic->type }}</td>
               <td>{{ $comic->price }}</td>
+              <td>{{ $comic->deleted_at }}</td>
               <td class="d-flex justify-content-center">
                 {{-- <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Details</a>
                 <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning ms-2 ">Edit</a> --}}
