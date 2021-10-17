@@ -48,6 +48,18 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
+
+        // ? validazioe
+        // ? con la funzione validation restituiamo un array associativo o di stringhe dove sono contenute le regole per la valizazione di uno specifico campo .
+        //? nel nostro caso i campi sono i nomi degli imput del form che faremo compilare all'utente
+
+        $request->validate([]);
+
+
+
+
+
+
         //
         //# prendiamo tutti i dati provenienti dal form generato da create
         $data = $request->all();
