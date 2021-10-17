@@ -1,7 +1,7 @@
 <div class="container">
-  @if (session('delete'))
-    <div class="alert alert-warning mt-2" role="alert">
-      <p> {{ session('delete') }} Eliminata con successo</p>
+  @if (session('success'))
+    <div class="alert alert-success mt-2" role="alert">
+      <p> {{ session('success') }} Eliminata con successo</p>
     </div>
   @endif
 </div>
@@ -21,7 +21,7 @@
             <th scope="col">Series</th>
             <th scope="col">Type</th>
             <th scope="col">Price</th>
-            <th scope="col">Actions</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -44,8 +44,7 @@
 
 
                 {{-- btn ripristina --}}
-                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form"
-                  data-comic="{{ $comic->title }}">
+                <form action="{{ route('comics.restore', $comic->id) }}" method="POST">
                   {{-- con data- possiamo creare attributi personalizati che in questo caso andiamo a leggere con js per scrivere il nome nell'allert --}}
                   @csrf
                   @method('PATCH')

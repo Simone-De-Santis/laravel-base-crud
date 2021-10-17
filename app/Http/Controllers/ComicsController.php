@@ -142,12 +142,29 @@ class ComicsController extends Controller
         $comic = Comic::findOrFail($id);
         $comic->delete();
         // # passiamo al redirect una varabile di sessione per l'allert di avvenuta cancellazione 
-        return redirect()->route('comics.index')->with('delete', $comic->title);
+        return redirect()->route('comics.index')->with('success', $comic->title);
     }
+
+
+    // ---------------------------------
     public function trash()
     {
         $comics = Comic::onlyTrashed()->get();
 
         return view('comics.trash', compact('comics'));
+    }
+
+
+
+
+    public function restore($id)
+    {
+        //! non possiaMO FARE IL CLASSICO FIND OR FAIL PERCHE NON CERCA GLI ID CANCELLATI O I SOFT DELITE
+        // $comic = Comic::findOrFail($id);
+        //! ma utiliziamo il suo medoto 
+        $comic = Comic::withTrashed()->find($id);
+
+        $comic->restore();
+        return redirect()->route('comics.index')->with('success', $comic->title);
     }
 }

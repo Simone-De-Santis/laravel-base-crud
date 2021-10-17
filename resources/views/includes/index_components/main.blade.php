@@ -1,7 +1,7 @@
 <div class="container">
-  @if (session('delete'))
-    <div class="alert alert-warning mt-2" role="alert">
-      <p> {{ session('delete') }} Eliminata con successo</p>
+  @if (session('success'))
+    <div class="alert alert-success mt-2" role="alert">
+      <p> {{ session('success') }} Eliminata con successo</p>
     </div>
   @endif
 </div>

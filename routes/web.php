@@ -17,7 +17,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 // rotte diverse per la visualizazzione del cestiono (soft delete)
-Route::get('/comic/trash', 'ComicsController@trash')->name('comics.trash');
+Route::get('/comics/trash', 'ComicsController@trash')->name('comics.trash');
+Route::patch('/comics/{comic}/restore', 'ComicsController@restore')->name('comics.restore');
 
 
 // queste sono le rotte generate da routs resorce
