@@ -90,6 +90,7 @@ class ComicsController extends Controller
         // $comic = new Comic();
 
 
+
         //# riasegnamo valori del modello con i dati ricevuto (data) dal forum per l'inserimento della tupla nel db
         //? manella
         // $comic->title = $data['title'];
