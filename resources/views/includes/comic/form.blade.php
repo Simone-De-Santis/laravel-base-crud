@@ -26,18 +26,29 @@
   <div class="col-md-5">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" name="title" required
+      <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required
         value="{{ old('title', $comic->title) }}">
-      <div class="form-text">Inserire Titolo Comics</div>
+      @error('title')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire Titolo Comics</div>
+      @enderror
     </div>
   </div>
   <div class="col-md-5">
     <div class="mb-3">
       <label for="thumb" class="form-label">Thumb</label>
-      <input type="text" class="form-control" id="thumb" name="thumb" required
+      <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" required
         value="{{ old('thumb', $comic->thumb) }}">
-      <div class="form-text">Inserire link img copertina Comics
-      </div>
+      @error('thumb')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire link img copertina Comics</div>
+      @enderror
     </div>
   </div>
   <div class="col-md-2">
@@ -49,41 +60,71 @@
   <div class="col-md-3">
     <div class="mb-3">
       <label for="series" class="form-label">Series</label>
-      <input type="text" class="form-control" id="series" name="series" required
+      <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" required
         value="{{ old('series', $comic->series) }}">
-      <div class="form-text">Inserire Series Comics</div>
+      @error('series')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire Series Comics</div>
+      @enderror
     </div>
   </div>
   <div class="col-md-3">
     <div class="mb-3">
       <label for="type" class="form-label">Type</label>
-      <input type="text" class="form-control" id="type" name="type" required
+      <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" required
         value="{{ old('type', $comic->type) }}">
-      <div class="form-text">Inserire type Comics</div>
+      @error('type')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire type Comics</div>
+      @enderror
     </div>
   </div>
   <div class="col-md-3">
     <div class="mb-3">
       <label for="sale_date" class="form-label">Sale date</label>
-      <input type="date" class="form-control" id="sale_date" name="sale_date" required
-        value="{{ old('sale_date', $comic->sale_date) }}">
-      <div class="form-text">Inserire data di vendita Comics</div>
+      <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date"
+        required value="{{ old('sale_date', $comic->sale_date) }}">
+      @error('title')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire data di vendita Comics</div>
+      @enderror
     </div>
   </div>
   <div class="col-md-3">
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
-      <input type="number" class="form-control" id="price" name="price" required
+      <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" required
         value="{{ old('price', $comic->price) }}">
-      <div class="form-text">Inserire prezzo di vendita Comics </div>
+      @error('price')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire prezzo di vendita Comics </div>
+      @enderror
     </div>
   </div>
   <div class="col 12">
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" id="description" rows="5"
+      <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="5"
         name='description'>{{ old('description', $comic->description) }}</textarea>
-      <div class="form-text">Inserire descrizione Comics </div>
+      @error('description')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @else
+        <div class="form-text">Inserire descrizione Comics </div>
+      @enderror
     </div>
   </div>
 </div>
