@@ -53,8 +53,15 @@
                   {{-- inserito un form perchè è l'unica maniera per intereagire e abbiamo cambiato il metodo con @method per il delite --}}
                   <button type="submit" class="btn btn-success ms-2">Restore</button>
                 </form>
-              </td>
 
+
+                {{-- btn force deleet --}}
+                <form action="{{ route('comics.forcedelete', $comic->id) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger ms-2">Force Delete</button>
+                </form>
+              </td>
             </tr>
           @empty
             <tr>
