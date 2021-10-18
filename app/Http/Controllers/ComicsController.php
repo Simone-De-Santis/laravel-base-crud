@@ -53,20 +53,30 @@ class ComicsController extends Controller
         // ? con la funzione validation restituiamo un array associativo o di stringhe dove sono contenute le regole per la valizazione di uno specifico campo .
         //? nel nostro caso i campi sono i nomi degli imput del form che faremo compilare all'utente
 
-        $request->validate([
-            // posso essere inserite in stringa 
-            'title' => 'required|string|unique:comics|max:255|min:5',
-            // oppure in array
-            // il required se non passa la validazione non fa eseguire le altrevalidazioni della stessa proprietà
-            'thumb' => ['required', 'string', 'min:10', 'max:255'],
-            'series' => ['required', 'max:255'],
-            'type' => ['required', 'max:255'],
-            'sale_date' => ['required', 'max:255'],
-            'price' => ['required', 'max:255'],
-            // se non  vengono superate tutte le regole scritte sopra il form non parte e viene rifreshata la pagina
-            // al refresh viene restituita la pagina ma con un contenitore di errori che abiamo a disposizione per rintracciarli
-            // che vedremo nella pagina(refreshata ) con $errorss
-        ]);
+        $request->validate(
+            [
+                // posso essere inserite in stringa 
+                'title' => 'required|string|unique:comics|max:255|min:5',
+                // oppure in array
+                // il required se non passa la validazione non fa eseguire le altrevalidazioni della stessa proprietà
+                'thumb' => ['required', 'string', 'min:10', 'max:255'],
+                'series' => ['required', 'max:255'],
+                'type' => ['required', 'max:255'],
+                'sale_date' => ['required', 'max:255'],
+                'price' => ['required', 'max:255'],
+                // se non  vengono superate tutte le regole scritte sopra il form non parte e viene rifreshata la pagina
+                // al refresh viene restituita la pagina ma con un contenitore di errori che abiamo a disposizione per rintracciarli
+                // che vedremo nella pagina(refreshata ) con $errorss
+            ],
+
+            [
+                // in questo array possiamo personalizzare i messagi di default che escono dalla validazione
+
+                'require' => " devi riempire obligatoriamente :attribute",
+                // possiamo personalizzare anche un campo specifico 
+                'thumb.required' => "il link della copertina è obligatoria",
+            ]
+        );
 
 
 
