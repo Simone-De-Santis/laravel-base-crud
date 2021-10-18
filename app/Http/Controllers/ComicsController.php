@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 // #import per l'utilizzo del metodo Carbon(per stilizzare le date)
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+// # importato per modificare le regole di validazione
+use Illuminate\Validation\Rule;
 
 class ComicsController extends Controller
 {
@@ -158,8 +160,10 @@ class ComicsController extends Controller
         $request->validate(
             [
                 // posso essere inserite in stringa 
-                'title' => 'required|string|unique:comics|max:255|min:5',
+                // 'title' => 'required|string|unique:comics|max:255|min:5',
                 // oppure in array
+                // ! con la classe rule possiamo andare a gestire le eccezioni delle regole 
+                'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id), 'max:255' . 'min:5'],
                 // il required se non passa la validazione non fa eseguire le altrevalidazioni della stessa proprietà
                 'thumb' => ['required', 'string', 'min:10', 'max:255'],
                 'series' => ['required', 'max:255'],
