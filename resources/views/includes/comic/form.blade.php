@@ -1,7 +1,17 @@
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+
+  </div>
+@endif
+
+
 {{-- verifichiamo se stiamo creando o editando --}}
 {{-- se stimao creando non avremo l'istanza comic al contrario l'istanza è ciò che stiamo modificando --}}
-
-
 {{-- exist verifica se è '''veramente''' una istanza reale (con id e tutto il resto) --}}
 @if ($comic->exists)
   <form method="POST" action="{{ route('comics.update', $comic->id) }}">
@@ -77,5 +87,4 @@
   <button type="submit" class='btn btn-success'>Eddit</button>
 
 </div>
-
 </form>

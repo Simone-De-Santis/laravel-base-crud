@@ -56,7 +56,8 @@ class ComicsController extends Controller
         $request->validate([
             // posso essere inserite in stringa 
             'title' => 'required|string|unique:comics|max:255|min:5',
-            // o in array
+            // oppure in array
+            // il required se non passa la validazione non fa eseguire le altrevalidazioni della stessa proprietà
             'thumb' => ['required', 'string', 'min:10', 'max:255'],
             'series' => ['required', 'max:255'],
             'type' => ['required', 'max:255'],
@@ -64,7 +65,7 @@ class ComicsController extends Controller
             'price' => ['required', 'max:255'],
             // se non  vengono superate tutte le regole scritte sopra il form non parte e viene rifreshata la pagina
             // al refresh viene restituita la pagina ma con un contenitore di errori che abiamo a disposizione per rintracciarli
-
+            // che vedremo nella pagina(refreshata ) con $errorss
         ]);
 
 
